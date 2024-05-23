@@ -17,14 +17,16 @@ class MainActivity : AppCompatActivity() {
         var btnDialog = findViewById<Button>(R.id.btnDialog)
 
         btnDialog.setOnClickListener {
+            var placeArr = arrayOf("맨체스터", "밴쿠버", "골드코스트")
+
             var dialog = AlertDialog.Builder(this@MainActivity)
-            dialog.setTitle("안내 메세지")
-            dialog.setMessage("오늘은 목요일입니다.")
+
+            dialog.setTitle("좋아하는 도시")
             dialog.setIcon(R.drawable.icon1)
-            dialog.setPositiveButton("확인"){ dialog, which ->
-                Toast.makeText(this@MainActivity, "확인버튼을 클릭했습니다.",
-                    Toast.LENGTH_SHORT).show()
+            dialog.setItems(placeArr){ d1, which ->
+                btnDialog.text = placeArr[which]
             }
+            dialog.setPositiveButton("닫기", null)
             dialog.show()
         }
     }
