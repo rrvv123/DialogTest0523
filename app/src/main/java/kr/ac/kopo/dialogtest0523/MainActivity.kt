@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
             dialog.setTitle("좋아하는 도시")
             dialog.setIcon(R.drawable.icon1)
-            dialog.setSingleChoiceItems(placeArr, 1){ d1, which ->
+            dialog.setMultiChoiceItems(placeArr, selectArr){ d1, which, isChecked ->
                 btnDialog.text = placeArr[which]
             }
             dialog.setPositiveButton("닫기", null)
