@@ -17,13 +17,15 @@ class MainActivity : AppCompatActivity() {
         var btnDialog = findViewById<Button>(R.id.btnDialog)
 
         btnDialog.setOnClickListener {
+//            라디오버튼 목록 대화상자
             var placeArr = arrayOf("맨체스터", "밴쿠버", "골드코스트")
+            var selectArr = booleanArrayOf(false, false, false)
 
             var dialog = AlertDialog.Builder(this@MainActivity)
 
             dialog.setTitle("좋아하는 도시")
             dialog.setIcon(R.drawable.icon1)
-            dialog.setItems(placeArr){ d1, which ->
+            dialog.setSingleChoiceItems(placeArr, 1){ d1, which ->
                 btnDialog.text = placeArr[which]
             }
             dialog.setPositiveButton("닫기", null)
